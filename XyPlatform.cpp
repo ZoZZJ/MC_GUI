@@ -1,4 +1,4 @@
-#include "xyplatform.h"
+#include "XyPlatform.h"
 #include "ui_xyplatformUI.h"
 #include <QApplication>
 #include <QPushButton>
@@ -10,6 +10,7 @@
 #include <QThread>
 #include <QDebug>
 #include <QButtonGroup>
+#include <QTimer>
 
 XyPlatform::XyPlatform(QWidget *parent)
     : QWidget(parent), xyui(new Ui::XyPlatform)
@@ -38,8 +39,8 @@ XyPlatform::XyPlatform(QWidget *parent)
     }
 
 
-    controller = new PlatformController("10.0.0.100", 502, NULL);
-    KeepMovingTimer = new QTimer(this);
+    controller = new MotionController();
+
 
     QThread* controllerThread = new QThread(this);
 
@@ -49,10 +50,12 @@ XyPlatform::XyPlatform(QWidget *parent)
        // 启动线程
     controllerThread->start();
 
+    KeepMovingTimer = new QTimer(this);
+
     QMetaObject::invokeMethod(controller, "startPolling");
 
     setupConnections();
-    connect(controllerThread, &QThread::finished, controller, &PlatformController::deleteLater);
+    connect(controllerThread, &QThread::finished, controller, &MotionController::deleteLater);
     connect(controllerThread, &QThread::finished, controllerThread, &QThread::deleteLater);
 
     enableAxis();
@@ -98,8 +101,8 @@ void XyPlatform::setupConnections() {
         qDebug() << "设置速度:" << velocity;
 
         // 使用获取的速度值设置轴的速度
-        controller->setAxisVelocity(0, velocity);
-        controller->setAxisVelocity(1, velocity);
+        //controller->setAxisVelocity(0, velocity);
+        //controller->setAxisVelocity(1, velocity);
     });
 
 
@@ -124,7 +127,7 @@ void XyPlatform::setupConnections() {
     connect(xyui->RightButton, &QPushButton::released, this, [this]() { handleStop(0); });
 
     // 定时更新状态和位置
-    connect(controller, &PlatformController::axisStateUpdated, this, [=](int axisId, bool enabled) {
+    connect(controller, &MotionController::axisStateUpdated, this, [=](int axisId, bool enabled) {
         if (axisId == 0) {
             //axis0Status->setText(QString("Axis 0: %1").arg(enabled ? "Enabled" : "Disabled"));
         } else {
@@ -132,9 +135,9 @@ void XyPlatform::setupConnections() {
         }
     });
 
-    connect(controller, &PlatformController::axisPositionUpdated, this, &XyPlatform::onAxisPositionUpdated);
-    connect(controller, &PlatformController::axisAccelerationUpdated, this, &XyPlatform::onAxisAccelerationUpdated);
-    connect(controller, &PlatformController::axisVelocityUpdated, this, &XyPlatform::onAxisVelocityUpdated);
+    connect(controller, &MotionController::axisPositionUpdated, this, &XyPlatform::onAxisPositionUpdated);
+    connect(controller, &MotionController::axisAccelerationUpdated, this, &XyPlatform::onAxisAccelerationUpdated);
+    connect(controller, &MotionController::axisVelocityUpdated, this, &XyPlatform::onAxisVelocityUpdated);
 
 }
 

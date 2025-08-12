@@ -7,7 +7,7 @@
 #include <QCommandLinkButton>
 #include <QDialogButtonBox>
 #include <QMessageBox>
-#include "AxisManager/PlatformController.h"
+#include "MotorController/MotionController.h"
 
 namespace Ui {
 class XyPlatform;
@@ -41,7 +41,7 @@ private:
 private:
 
     bool platformEnabled = false;
-    PlatformController* controller = nullptr; // 控制器实例
+    MotionController* controller; // 控制器实例
     int m_MoveType = 0; //0=步进 1=持续
     QTimer* KeepMovingTimer= nullptr;       // 用于长按按钮触发移动
 

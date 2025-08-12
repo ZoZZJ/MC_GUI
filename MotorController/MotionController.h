@@ -10,6 +10,7 @@
 class MotionController : public QObject {
     Q_OBJECT
 
+
 public:
     explicit MotionController(QObject *parent = nullptr);
     ~MotionController();
@@ -34,6 +35,7 @@ public:
     void moveToAngle(int axis, double angle, double velocity);
     void startJog(int axis, double velocity, bool forward);
     void stopMotion(int axis);
+    void moveToPosition(int axis1, int axis2, long pos1, long pos2, double velocity, double acc);
 
     // 状态监控
     double getAngle(int axis);

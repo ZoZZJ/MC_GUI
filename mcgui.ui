@@ -14,20 +14,16 @@
    <string>McGUI</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="XyPlatform" name="XYAxisWidget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>20</y>
-      <width>1451</width>
-      <height>771</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="XyPlatform" name="XYAxisWidget" native="true">
+      <property name="styleSheet">
+       <string notr="true">
 background-color: rgb(208, 208, 208);</string>
-    </property>
-   </widget>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

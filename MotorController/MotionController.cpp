@@ -41,6 +41,11 @@ bool MotionController::initialize(const std::string& pcIP, unsigned short pcPort
         card->MC_EncOff(axis + 1); // 轴号从1开始
     }
 
+    // 上电后自动复位所有轴
+    for (int axis = 0; axis < 8; ++axis) {
+        homeAxis(axis, false, 1.0, 1.0, 0.1); // 负向回零，速度1.0，加速度0.1
+    }
+
     isInitialized = true;
     return true;
 }
@@ -295,6 +300,51 @@ void MotionController::stopMotion(int axis) {
     int result = card->MC_Stop(1 << axis, 1 << axis);
     if (result != MC_COM_SUCCESS) {
         emit errorOccurred(QString("轴%1停止失败，错误码：%2").arg(axis).arg(result));
+    }
+}
+
+void MotionController::moveToPosition(int axis1, int axis2, long pos1, long pos2, double velocity, double acc) {
+    QMutexLocker locker(&mutex);
+    if (!checkAxisValid(axis1) || !checkAxisValid(axis2)) {
+        emit errorOccurred(QString("无效轴号：轴1=%1, 轴2=%2").arg(axis1).arg(axis2));
+        return;
+    }
+
+    // 设置坐标系参数（两轴插补）
+    TCrdPrm crdPrm;
+    crdPrm.dimension = 2; // 两维
+    crdPrm.profile[0] = axis1 + 1; // 轴1
+    crdPrm.profile[1] = axis2 + 1; // 轴2
+    crdPrm.synVelMax = velocity;
+    crdPrm.synAccMax = acc;
+    crdPrm.evenTime = 0;
+    crdPrm.setOriginFlag = 0; // 使用当前位置为原点
+
+    int result = card->MC_SetCrdPrm(1, &crdPrm); // 坐标系1
+    if (result != MC_COM_SUCCESS) {
+        emit errorOccurred(QString("设置坐标系失败，错误码：%1").arg(result));
+        return;
+    }
+
+    // 清空缓冲区
+    result = card->MC_CrdClear(1, 0);
+    if (result != MC_COM_SUCCESS) {
+        emit errorOccurred(QString("清空插补缓冲区失败，错误码：%1").arg(result));
+        return;
+    }
+
+    // 移动到目标位置
+    result = card->MC_LnXY(1, pos1, pos2, velocity, acc, 0, 0, 0); // 终点速度0
+    if (result != MC_COM_SUCCESS) {
+        emit errorOccurred(QString("设置插补运动失败，错误码：%1").arg(result));
+        return;
+    }
+
+    // 启动坐标系运动
+    result = card->MC_CrdStart(1, 0);
+    if (result != MC_COM_SUCCESS) {
+        emit errorOccurred(QString("启动插补运动失败，错误码：%1").arg(result));
+        return;
     }
 }
 

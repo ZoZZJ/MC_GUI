@@ -26,15 +26,15 @@ INCLUDEPATH += C:\opencv452\include\opencv2
 
 SOURCES += \
     MotorController/MotionController.cpp \
+    XyPlatform.cpp \
     main.cpp \
-    mcgui.cpp \
-    xyplatform.cpp
+    mcgui.cpp
 
 HEADERS += \
     ../../C++_lib/MultiCardCPP.h \
     MotorController/MotionController.h \
-    mcgui.h \
-    xyplatform.h
+    XyPlatform.h \
+    mcgui.h
 
 FORMS += \
     mcgui.ui \
