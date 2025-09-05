@@ -1,6 +1,9 @@
-QT       += core gui
+QT       += core gui widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QMAKE_CXXFLAGS += /utf-8
+
+CONFIG += console
 
 CONFIG += c++17
 
@@ -14,11 +17,15 @@ CONFIG += c++17
 #LIBS +=E:\Qt\documents\monitor_app\libmodbus\lib\release\modbus.dll
 
 # 指定库所在的文件夹
-LIBS += -L../../C++_lib/64bit/
-LIBS += -lMultiCard
+LIBS += "E:/MC_Controller/C++_lib/64bit/MultiCard.lib"
 
 
-INCLUDEPATH +=../../C++_lib/
+
+
+
+
+INCLUDEPATH +=  ../../C++_lib/
+
 INCLUDEPATH +=C:\opencv452\include
 INCLUDEPATH += C:\opencv452\include\opencv2
 
@@ -32,6 +39,7 @@ SOURCES += \
 
 HEADERS += \
     ../../C++_lib/MultiCardCPP.h \
+    GlobalVars.h \
     MotorController/MotionController.h \
     XyPlatform.h \
     mcgui.h

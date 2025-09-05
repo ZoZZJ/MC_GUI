@@ -14,16 +14,7 @@
    <string>McGUI</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="XyPlatform" name="XYAxisWidget" native="true">
-      <property name="styleSheet">
-       <string notr="true">
-background-color: rgb(208, 208, 208);</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <layout class="QVBoxLayout" name="verticalLayout"/>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -37,14 +28,6 @@ background-color: rgb(208, 208, 208);</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>XyPlatform</class>
-   <extends>QWidget</extends>
-   <header>xyplatform.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

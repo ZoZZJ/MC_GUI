@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1435</width>
+    <width>1616</width>
     <height>1162</height>
    </rect>
   </property>
@@ -473,6 +473,20 @@ background-color: rgb(240, 240, 240);</string>
                </layout>
               </item>
              </layout>
+            </item>
+            <item>
+             <widget class="QPushButton" name="OpenCardbutton">
+              <property name="text">
+               <string>打开板卡</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="CloseCardbutton">
+              <property name="text">
+               <string>关闭板卡</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -1039,21 +1053,21 @@ background-color: rgb(244, 244, 244);</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
-            <widget class="QPushButton" name="pushButton_2">
+            <widget class="QPushButton" name="savePhotoButton">
              <property name="text">
               <string>保存图片</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="openCameraButton">
              <property name="text">
               <string>打开相机</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit">
+            <widget class="QLineEdit" name="savePathEdit">
              <property name="text">
               <string>保存路径：</string>
              </property>
@@ -1910,7 +1924,7 @@ background-color: rgb(244, 244, 244);</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="LeftButton_7">
+          <widget class="QPushButton" name="AutoGet16PhotosButton">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>

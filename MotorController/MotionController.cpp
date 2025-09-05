@@ -1,28 +1,49 @@
 #include "MotionController.h"
 #include <QDebug>
+#include "MultiCardCPP.h"
+#include <memory>
+#include <algorithm>
 
-MotionController::MotionController(QObject *parent) : QObject(parent), card(new MultiCard()), pulsesPerRev(1600), isInitialized(false) {
-    trapParams.resize(8); // 为8个轴初始化参数
+MotionController::MotionController(QObject *parent)
+    : QObject(parent),
+    pulsesPerRev(1600),
+    isInitialized(false),
+    card(nullptr)  // 初始化为空,板卡要上电接好才能初始化
+{
+    trapParams.resize(8); // 初始化8个轴参数
 }
 
 MotionController::~MotionController() {
-    if (isInitialized) {
+    if (card && isInitialized) {
         card->MC_Close();
     }
-    delete card;
+    // card 是 unique_ptr 或手动指针，这里不用 delete（unique_ptr 自动释放）
 }
 
+// 初始化控制卡
 bool MotionController::initialize(const std::string& pcIP, unsigned short pcPort,
-                                 const std::string& cardIP, unsigned short cardPort) {
-    QMutexLocker locker(&mutex);
-    char pcEthernetIP[20];
-    char cardEthernetIP[20];
-    strncpy(pcEthernetIP, pcIP.c_str(), sizeof(pcEthernetIP) - 1);
-    pcEthernetIP[sizeof(pcEthernetIP) - 1] = '\0';
-    strncpy(cardEthernetIP, cardIP.c_str(), sizeof(cardEthernetIP) - 1);
-    cardEthernetIP[sizeof(cardEthernetIP) - 1] = '\0';
+                                  const std::string& cardIP, unsigned short cardPort) {
 
-    int result = card->MC_Open(0, pcEthernetIP, pcPort, cardEthernetIP, cardPort);
+    try {
+        //testStackAllocation();
+        card = std::make_unique<MultiCard>();
+         qDebug() << "控制分配内存成功";
+    } catch (...) {
+        qDebug() << "控制卡初始化失败";
+        return false;
+    }
+
+    if (!card) return false;
+
+    QMutexLocker locker(&mutex);
+
+    // 安全截断 IP 字符串到 19 字节
+    char pcEthernetIP[20] = {0};
+    char cardEthernetIP[20] = {0};
+    std::strncpy(pcEthernetIP, pcIP.c_str(), sizeof(pcEthernetIP) - 1);
+    std::strncpy(cardEthernetIP, cardIP.c_str(), sizeof(cardEthernetIP) - 1);
+
+    int result = card->MC_Open(1, pcEthernetIP, pcPort, cardEthernetIP, cardPort);
     if (result != MC_COM_SUCCESS) {
         emit errorOccurred(QString("控制卡连接失败，错误码：%1").arg(result));
         return false;
@@ -38,17 +59,18 @@ bool MotionController::initialize(const std::string& pcIP, unsigned short pcPort
 
     // 初始化八个轴，禁用编码器（开环控制）
     for (int axis = 0; axis < 8; ++axis) {
-        card->MC_EncOff(axis + 1); // 轴号从1开始
+        card->MC_EncOff(axis + 1);
     }
 
     // 上电后自动复位所有轴
-    for (int axis = 0; axis < 8; ++axis) {
-        homeAxis(axis, false, 1.0, 1.0, 0.1); // 负向回零，速度1.0，加速度0.1
+    for (int axis = 0; axis < 2; ++axis) {
+        //homeAxis(axis, false, 1.0, 1.0, 0.1);
     }
 
     isInitialized = true;
     return true;
 }
+
 
 void MotionController::setAxisParameters(int axis, double acc, double dec, double velStart, short smoothTime) {
     QMutexLocker locker(&mutex);
@@ -333,7 +355,8 @@ void MotionController::moveToPosition(int axis1, int axis2, long pos1, long pos2
         return;
     }
 
-    // 移动到目标位置
+    // 移动到目标位置  卡号 x位置 y位置 速度 加速度
+    //int MC_LnXY(short nCrdNum,long x,long y,double synVel,double synAcc,double velEnd=0,short FifoIndex=0,long segNum = 0);
     result = card->MC_LnXY(1, pos1, pos2, velocity, acc, 0, 0, 0); // 终点速度0
     if (result != MC_COM_SUCCESS) {
         emit errorOccurred(QString("设置插补运动失败，错误码：%1").arg(result));
@@ -355,7 +378,7 @@ double MotionController::getAngle(int axis) {
         return 0.0;
     }
 
-    long pulses;
+    double pulses;
     int result = card->MC_GetPrfPos(axis + 1, &pulses);
     if (result != MC_COM_SUCCESS) {
         emit errorOccurred(QString("轴%1获取位置失败，错误码：%2").arg(axis).arg(result));
@@ -414,10 +437,19 @@ long MotionController::angleToPulses(double angle) const {
     return static_cast<long>(angle / 360.0 * pulsesPerRev);
 }
 
-double MotionController::pulsesToAngle(long pulses) const {
+double MotionController::pulsesToAngle(double pulses) const {
     return static_cast<double>(pulses) / pulsesPerRev * 360.0;
 }
 
 bool MotionController::checkAxisValid(int axis) const {
     return (axis >= 0 && axis < 8);
+}
+
+void MotionController::testStackAllocation() {
+    try {
+        MultiCard card; // 栈上对象
+        std::cout << "success" << std::endl;
+    } catch (...) {
+        std::cout << "fail" << std::endl;
+    }
 }

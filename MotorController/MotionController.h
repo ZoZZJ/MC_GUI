@@ -4,8 +4,10 @@
 #include "MultiCardCPP.h"
 #include <QObject>
 #include <QMutex>
+#include <iostream>
 #include <vector>
 #include <string>
+#include <memory>
 
 class MotionController : public QObject {
     Q_OBJECT
@@ -47,7 +49,8 @@ signals:
     void errorOccurred(const QString& errorMsg);
 
 private:
-    MultiCard* card; // 控制卡对象
+    std::unique_ptr<MultiCard> card;
+    //MultiCard g_MultiCard;
     std::vector<TTrapPrm> trapParams; // 每个轴的运动参数
     int pulsesPerRev; // 每圈脉冲数
     QMutex mutex; // 线程安全互斥锁
@@ -55,8 +58,9 @@ private:
 
     // 辅助方法
     long angleToPulses(double angle) const;
-    double pulsesToAngle(long pulses) const;
+    double pulsesToAngle(double pulses) const;
     bool checkAxisValid(int axis) const;
+    void testStackAllocation();
 };
 
 #endif // MOTIONCONTROLLER_H

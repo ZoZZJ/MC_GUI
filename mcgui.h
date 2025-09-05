@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "MultiCardCPP.h"
+#include "XyPlatform.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
