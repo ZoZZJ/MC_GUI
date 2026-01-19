@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1616</width>
-    <height>1162</height>
+    <width>1567</width>
+    <height>972</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <string notr="true">background-color: rgb(64, 65, 66);
 background-color: rgb(240, 240, 240);</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_11" stretch="3,0">
+  <layout class="QVBoxLayout" name="verticalLayout_11" stretch="4,1">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="1,4,4">
+    <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="0,0,0">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_8" stretch="1,1">
        <item>
@@ -304,8 +304,11 @@ background-color: rgb(240, 240, 240);</string>
                       <height>16777215</height>
                      </size>
                     </property>
-                    <property name="maximum">
+                    <property name="minimum">
                      <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>6</number>
                     </property>
                    </widget>
                   </item>
@@ -409,8 +412,11 @@ background-color: rgb(240, 240, 240);</string>
                       <height>16777215</height>
                      </size>
                     </property>
-                    <property name="maximum">
+                    <property name="minimum">
                      <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>6</number>
                     </property>
                    </widget>
                   </item>
@@ -507,7 +513,7 @@ background-color: rgb(244, 244, 244);</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_13" stretch="1,3">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,1">
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1">
           <property name="sizeConstraint">
            <enum>QLayout::SetDefaultConstraint</enum>
           </property>
@@ -548,7 +554,7 @@ background-color: rgb(244, 244, 244);</string>
                   <string>点按步进</string>
                  </property>
                  <property name="checked">
-                  <bool>false</bool>
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -567,7 +573,7 @@ background-color: rgb(244, 244, 244);</string>
                   <string>持续移动</string>
                  </property>
                  <property name="checked">
-                  <bool>true</bool>
+                  <bool>false</bool>
                  </property>
                 </widget>
                </item>
@@ -592,227 +598,47 @@ background-color: rgb(244, 244, 244);</string>
             <property name="title">
              <string>步进距离</string>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_12">
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_11">
-               <item>
-                <widget class="QRadioButton" name="distance0">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="text">
-                  <string>0.01</string>
-                 </property>
-                 <property name="checkable">
-                  <bool>true</bool>
-                 </property>
-                 <property name="checked">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_14">
-                 <property name="text">
-                  <string>mm/s</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
+              <widget class="QLineEdit" name="MoveDistanceEdit">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>120</width>
+                 <height>60</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);</string>
+               </property>
+               <property name="text">
+                <string>5</string>
+               </property>
+               <property name="cursorPosition">
+                <number>1</number>
+               </property>
+               <property name="readOnly">
+                <bool>false</bool>
+               </property>
+              </widget>
              </item>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_16">
-               <item>
-                <widget class="QRadioButton" name="distance1">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="text">
-                  <string>0.1</string>
-                 </property>
-                 <property name="checkable">
-                  <bool>true</bool>
-                 </property>
-                 <property name="checked">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_15">
-                 <property name="text">
-                  <string>mm/s</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_17">
-               <item>
-                <widget class="QRadioButton" name="distance2">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="text">
-                  <string>1</string>
-                 </property>
-                 <property name="checkable">
-                  <bool>true</bool>
-                 </property>
-                 <property name="checked">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_16">
-                 <property name="text">
-                  <string>mm/s</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_18">
-               <item>
-                <widget class="QRadioButton" name="distance3">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="text">
-                  <string>10</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_17">
-                 <property name="text">
-                  <string>mm/s</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_2">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="title">
-             <string>速度选择</string>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_16">
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_8">
-               <item>
-                <widget class="QRadioButton" name="vel0">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="text">
-                  <string>10</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_7">
-                 <property name="text">
-                  <string>mm/s</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_9">
-               <item>
-                <widget class="QRadioButton" name="vel1">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="layoutDirection">
-                  <enum>Qt::LeftToRight</enum>
-                 </property>
-                 <property name="text">
-                  <string>20</string>
-                 </property>
-                 <property name="checked">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_8">
-                 <property name="text">
-                  <string>mm/s</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_10">
-               <item>
-                <widget class="QRadioButton" name="vel2">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="text">
-                  <string> 40</string>
-                 </property>
-                 <property name="checked">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_9">
-                 <property name="text">
-                  <string>mm/s</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
+              <widget class="QLabel" name="label_14">
+               <property name="text">
+                <string>mm</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </widget>
@@ -827,202 +653,222 @@ background-color: rgb(244, 244, 244);</string>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(254, 254, 254);</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
           </property>
-          <layout class="QGridLayout" name="gridLayout">
-           <item row="2" column="1">
-            <widget class="QPushButton" name="DownButton">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>999999</width>
-               <height>99999</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>Y-</string>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>:/photos/DownArrow.png</normaloff>:/photos/DownArrow.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>110</width>
-               <height>110</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QPushButton" name="EnableButton">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="text">
-              <string>使能</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QPushButton" name="LeftButton">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>99999</width>
-               <height>99999</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string>向左移动</string>
-             </property>
-             <property name="statusTip">
-              <string/>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>X-</string>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>:/photos/LeftArrow.png</normaloff>:/photos/LeftArrow.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>110</width>
-               <height>110</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QPushButton" name="CommutButton">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="text">
-              <string>换向</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QPushButton" name="RightButton">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>99999</width>
-               <height>999999</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>X+</string>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>:/photos/RightArrow.png</normaloff>:/photos/RightArrow.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>110</width>
-               <height>110</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QPushButton" name="UpButton">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>90000</width>
-               <height>999999</height>
-              </size>
-             </property>
-             <property name="focusPolicy">
-              <enum>Qt::NoFocus</enum>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>Y+</string>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>:/photos/UpArrow.png</normaloff>:/photos/UpArrow.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>110</width>
-               <height>110</height>
-              </size>
-             </property>
-            </widget>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <layout class="QGridLayout" name="gridLayout" columnstretch="1,1,1">
+             <item row="0" column="0">
+              <widget class="QPushButton" name="CommutButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>换向</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QPushButton" name="UpButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>90000</width>
+                 <height>999999</height>
+                </size>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>Y+</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>:/photos/UpArrow.png</normaloff>:/photos/UpArrow.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>110</width>
+                 <height>110</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QPushButton" name="StopMotionSoftButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>软停止</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="LeftButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>99999</width>
+                 <height>99999</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>向左移动</string>
+               </property>
+               <property name="statusTip">
+                <string/>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>X-</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>:/photos/LeftArrow.png</normaloff>:/photos/LeftArrow.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>110</width>
+                 <height>110</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QPushButton" name="pushButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>测试</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QPushButton" name="RightButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>99999</width>
+                 <height>999999</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>X+</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>:/photos/RightArrow.png</normaloff>:/photos/RightArrow.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>110</width>
+                 <height>110</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QPushButton" name="DownButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>999999</width>
+                 <height>99999</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>Y-</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>:/photos/DownArrow.png</normaloff>:/photos/DownArrow.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>110</width>
+                 <height>110</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -1035,6 +881,12 @@ background-color: rgb(244, 244, 244);</string>
        <layout class="QVBoxLayout" name="verticalLayout_19">
         <item>
          <widget class="QLabel" name="label">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(64, 65, 66);</string>
           </property>
@@ -1067,18 +919,42 @@ background-color: rgb(244, 244, 244);</string>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="savePathEdit">
-             <property name="text">
-              <string>保存路径：</string>
-             </property>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,5">
+             <item>
+              <widget class="QLabel" name="label_4">
+               <property name="text">
+                <string>保存路径：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="savePathEdit">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>/desktop</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QLabel" name="label_4">
-             <property name="text">
-              <string>桌面</string>
-             </property>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QTextEdit" name="MsgTextEdit">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -1130,7 +1006,7 @@ background-color: rgb(244, 244, 244);</string>
             </widget>
            </item>
            <item>
-            <widget class="QLCDNumber" name="YlcdNumber_2">
+            <widget class="QLCDNumber" name="LCD1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
                <horstretch>0</horstretch>
@@ -1162,7 +1038,7 @@ background-color: rgb(244, 244, 244);</string>
               <bool>true</bool>
              </property>
              <property name="digitCount">
-              <number>5</number>
+              <number>3</number>
              </property>
              <property name="value" stdset="0">
               <double>0.000000000000000</double>
@@ -1175,7 +1051,7 @@ background-color: rgb(244, 244, 244);</string>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_20">
              <item>
-              <widget class="QPushButton" name="LeftButton_2">
+              <widget class="QPushButton" name="LeftButton_1">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1219,7 +1095,7 @@ background-color: rgb(244, 244, 244);</string>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="CurrXVelEdit_2">
+              <widget class="QLineEdit" name="CurrXVelEdit_1">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1239,15 +1115,18 @@ background-color: rgb(244, 244, 244);</string>
                 </size>
                </property>
                <property name="text">
-                <string>0</string>
+                <string>45</string>
+               </property>
+               <property name="cursorPosition">
+                <number>2</number>
                </property>
                <property name="readOnly">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="RightButton_2">
+              <widget class="QPushButton" name="RightButton_1">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1324,7 +1203,7 @@ background-color: rgb(244, 244, 244);</string>
             </widget>
            </item>
            <item>
-            <widget class="QLCDNumber" name="YlcdNumber_6">
+            <widget class="QLCDNumber" name="LCD2">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
                <horstretch>0</horstretch>
@@ -1356,7 +1235,7 @@ background-color: rgb(244, 244, 244);</string>
               <bool>true</bool>
              </property>
              <property name="digitCount">
-              <number>5</number>
+              <number>3</number>
              </property>
              <property name="value" stdset="0">
               <double>0.000000000000000</double>
@@ -1369,7 +1248,7 @@ background-color: rgb(244, 244, 244);</string>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_21">
              <item>
-              <widget class="QPushButton" name="LeftButton_3">
+              <widget class="QPushButton" name="LeftButton_2">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1413,7 +1292,7 @@ background-color: rgb(244, 244, 244);</string>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="CurrXVelEdit_3">
+              <widget class="QLineEdit" name="CurrXVelEdit_2">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1433,15 +1312,15 @@ background-color: rgb(244, 244, 244);</string>
                 </size>
                </property>
                <property name="text">
-                <string>0</string>
+                <string>45</string>
                </property>
                <property name="readOnly">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="RightButton_3">
+              <widget class="QPushButton" name="RightButton_2">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1518,7 +1397,7 @@ background-color: rgb(244, 244, 244);</string>
             </widget>
            </item>
            <item>
-            <widget class="QLCDNumber" name="YlcdNumber_7">
+            <widget class="QLCDNumber" name="LCDt3">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
                <horstretch>0</horstretch>
@@ -1550,7 +1429,7 @@ background-color: rgb(244, 244, 244);</string>
               <bool>true</bool>
              </property>
              <property name="digitCount">
-              <number>5</number>
+              <number>3</number>
              </property>
              <property name="value" stdset="0">
               <double>0.000000000000000</double>
@@ -1563,7 +1442,7 @@ background-color: rgb(244, 244, 244);</string>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_23">
              <item>
-              <widget class="QPushButton" name="LeftButton_4">
+              <widget class="QPushButton" name="LeftButton_3">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1607,7 +1486,7 @@ background-color: rgb(244, 244, 244);</string>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="CurrXVelEdit_4">
+              <widget class="QLineEdit" name="CurrXVelEdit_3">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1627,15 +1506,15 @@ background-color: rgb(244, 244, 244);</string>
                 </size>
                </property>
                <property name="text">
-                <string>0</string>
+                <string>45</string>
                </property>
                <property name="readOnly">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="RightButton_4">
+              <widget class="QPushButton" name="RightButton_3">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1712,7 +1591,7 @@ background-color: rgb(244, 244, 244);</string>
             </widget>
            </item>
            <item>
-            <widget class="QLCDNumber" name="YlcdNumber_8">
+            <widget class="QLCDNumber" name="LCDt4">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
                <horstretch>0</horstretch>
@@ -1741,10 +1620,13 @@ background-color: rgb(244, 244, 244);</string>
               <string notr="true">background-color: rgb(240, 240, 240);</string>
              </property>
              <property name="smallDecimalPoint">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
              <property name="digitCount">
-              <number>5</number>
+              <number>3</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Filled</enum>
              </property>
              <property name="value" stdset="0">
               <double>0.000000000000000</double>
@@ -1757,7 +1639,7 @@ background-color: rgb(244, 244, 244);</string>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_33">
              <item>
-              <widget class="QPushButton" name="LeftButton_5">
+              <widget class="QPushButton" name="LeftButton_4">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1801,7 +1683,7 @@ background-color: rgb(244, 244, 244);</string>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="CurrXVelEdit_5">
+              <widget class="QLineEdit" name="CurrXVelEdit_4">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1821,15 +1703,15 @@ background-color: rgb(244, 244, 244);</string>
                 </size>
                </property>
                <property name="text">
-                <string>0</string>
+                <string>45</string>
                </property>
                <property name="readOnly">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="RightButton_5">
+              <widget class="QPushButton" name="RightButton_4">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1878,7 +1760,139 @@ background-color: rgb(244, 244, 244);</string>
         <property name="title">
          <string>自动化功能</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_20">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QPushButton" name="LeftButton_10">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>99999</width>
+             <height>99999</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>向左移动</string>
+           </property>
+           <property name="statusTip">
+            <string/>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>吸盘吸/吐气</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>:/photos/LeftArrow.png</normaloff>:/photos/LeftArrow.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>110</width>
+             <height>110</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="LeftButton_9">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>99999</width>
+             <height>99999</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>向左移动</string>
+           </property>
+           <property name="statusTip">
+            <string/>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>XY轴平台回0</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>:/photos/LeftArrow.png</normaloff>:/photos/LeftArrow.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>110</width>
+             <height>110</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="LeftButton_7">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>99999</width>
+             <height>99999</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>向左移动</string>
+           </property>
+           <property name="statusTip">
+            <string/>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>回转气缸角度切换（电磁阀通断电）</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>:/photos/LeftArrow.png</normaloff>:/photos/LeftArrow.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>110</width>
+             <height>110</height>
+            </size>
+           </property>
+          </widget>
+         </item>
          <item>
           <widget class="QPushButton" name="LeftButton_6">
            <property name="sizePolicy">

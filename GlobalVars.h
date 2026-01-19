@@ -8,10 +8,15 @@
 inline MultiCard g_MultiCard;  // 控制卡全局对象（默认构造）
 
 // 带初始值的全局变量
-inline int g_CurrentAxisNum = 1;  // 当前选中轴号，默认1
-inline QString g_DeviceName = "PCI8511B";  // 设备名，默认"PCI8511B"
+//inline int g_CurrentAxisNum = 1;  // 当前选中轴号，默认1
+//inline QString g_DeviceName = "PCI8511B";  // 设备名，默认"PCI8511B"
 
 // 全局常量（const 变量在头文件中初始化无需 inline，天然支持多文件包含）
-const int g_MaxAxisCount = 4;  // 最大轴数，固定为4
+//const int g_MaxAxisCount = 6;  // 最大轴数，固定为4
+
+
+
+
+
 
 #endif // GLOBALVARS_H

@@ -5,6 +5,12 @@ QMAKE_CXXFLAGS += /utf-8
 
 CONFIG += console
 
+
+# # 关掉所有优化（这是不崩的关键）
+# QMAKE_CXXFLAGS_RELEASE -= -O2
+# QMAKE_CXXFLAGS_RELEASE += -Od
+
+
 CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -19,12 +25,15 @@ CONFIG += c++17
 # 指定库所在的文件夹
 LIBS += "E:/MC_Controller/C++_lib/64bit/MultiCard.lib"
 
+LIBS += -LE:/MC_Controller/Development/Libraries/win64/ \
+        -lMvCameraControl
 
 
 
 
 
 INCLUDEPATH +=  ../../C++_lib/
+INCLUDEPATH +=  ../../Development/Includes/
 
 INCLUDEPATH +=C:\opencv452\include
 INCLUDEPATH += C:\opencv452\include\opencv2
@@ -32,6 +41,8 @@ INCLUDEPATH += C:\opencv452\include\opencv2
 
 
 SOURCES += \
+    CameraController.cpp \
+    CameraWidget.cpp \
     MotorController/MotionController.cpp \
     XyPlatform.cpp \
     main.cpp \
@@ -39,6 +50,8 @@ SOURCES += \
 
 HEADERS += \
     ../../C++_lib/MultiCardCPP.h \
+    CameraController.h \
+    CameraWidget.h \
     GlobalVars.h \
     MotorController/MotionController.h \
     XyPlatform.h \

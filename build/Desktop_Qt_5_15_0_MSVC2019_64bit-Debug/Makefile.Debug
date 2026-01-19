@@ -815,6 +815,10 @@ debug\XyPlatform.obj: ..\..\XyPlatform.cpp ..\..\XyPlatform.h \
 		E:\Qt\5.15.0\msvc2019_64\include\QtGui\qtextoption.h \
 		E:\Qt\5.15.0\msvc2019_64\include\QtWidgets\QPushButton \
 		E:\Qt\5.15.0\msvc2019_64\include\QtWidgets\QSpinBox \
+		E:\Qt\5.15.0\msvc2019_64\include\QtWidgets\QTextEdit \
+		E:\Qt\5.15.0\msvc2019_64\include\QtWidgets\qtextedit.h \
+		E:\Qt\5.15.0\msvc2019_64\include\QtWidgets\qabstractscrollarea.h \
+		E:\Qt\5.15.0\msvc2019_64\include\QtGui\qtextdocument.h \
 		E:\Qt\5.15.0\msvc2019_64\include\QtGui\QPixmap \
 		E:\Qt\5.15.0\msvc2019_64\include\QtGui\QImageReader \
 		E:\Qt\5.15.0\msvc2019_64\include\QtGui\qimagereader.h \

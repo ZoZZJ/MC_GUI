@@ -23,6 +23,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpinBox>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -65,6 +66,8 @@ public:
     QDoubleSpinBox *AccSpinBox;
     QLabel *label_6;
     QPushButton *accPushButton;
+    QPushButton *OpenCardbutton;
+    QPushButton *CloseCardbutton;
     QFrame *frame;
     QVBoxLayout *verticalLayout_13;
     QHBoxLayout *horizontalLayout;
@@ -74,38 +77,19 @@ public:
     QRadioButton *moveOnceBtn;
     QRadioButton *moveEndureBtn;
     QGroupBox *groupBox_3;
-    QVBoxLayout *verticalLayout_12;
-    QHBoxLayout *horizontalLayout_11;
-    QRadioButton *distance0;
+    QHBoxLayout *horizontalLayout_4;
+    QLineEdit *MoveDistanceEdit;
     QLabel *label_14;
-    QHBoxLayout *horizontalLayout_16;
-    QRadioButton *distance1;
-    QLabel *label_15;
-    QHBoxLayout *horizontalLayout_17;
-    QRadioButton *distance2;
-    QLabel *label_16;
-    QHBoxLayout *horizontalLayout_18;
-    QRadioButton *distance3;
-    QLabel *label_17;
-    QGroupBox *groupBox_2;
-    QVBoxLayout *verticalLayout_16;
-    QHBoxLayout *horizontalLayout_8;
-    QRadioButton *vel0;
-    QLabel *label_7;
-    QHBoxLayout *horizontalLayout_9;
-    QRadioButton *vel1;
-    QLabel *label_8;
-    QHBoxLayout *horizontalLayout_10;
-    QRadioButton *vel2;
-    QLabel *label_9;
     QFrame *Moveframe;
+    QHBoxLayout *horizontalLayout_8;
     QGridLayout *gridLayout;
-    QPushButton *DownButton;
-    QPushButton *EnableButton;
-    QPushButton *LeftButton;
     QPushButton *CommutButton;
-    QPushButton *RightButton;
     QPushButton *UpButton;
+    QPushButton *StopMotionSoftButton;
+    QPushButton *LeftButton;
+    QPushButton *pushButton;
+    QPushButton *RightButton;
+    QPushButton *DownButton;
     QWidget *CameraWidget;
     QVBoxLayout *verticalLayout_19;
     QLabel *label;
@@ -113,42 +97,48 @@ public:
     QVBoxLayout *verticalLayout;
     QPushButton *savePhotoButton;
     QPushButton *openCameraButton;
-    QLineEdit *savePathEdit;
+    QHBoxLayout *horizontalLayout_3;
     QLabel *label_4;
+    QLineEdit *savePathEdit;
+    QHBoxLayout *horizontalLayout_2;
+    QTextEdit *MsgTextEdit;
     QWidget *RotationAxisWidget;
     QHBoxLayout *horizontalLayout_19;
     QWidget *widget_3;
     QVBoxLayout *verticalLayout_14;
     QHBoxLayout *horizontalLayout_26;
     QLabel *label_23;
-    QLCDNumber *YlcdNumber_2;
+    QLCDNumber *LCD1;
     QHBoxLayout *horizontalLayout_20;
+    QPushButton *LeftButton_1;
+    QLineEdit *CurrXVelEdit_1;
+    QPushButton *RightButton_1;
+    QHBoxLayout *horizontalLayout_30;
+    QLabel *label_31;
+    QLCDNumber *LCD2;
+    QHBoxLayout *horizontalLayout_21;
     QPushButton *LeftButton_2;
     QLineEdit *CurrXVelEdit_2;
     QPushButton *RightButton_2;
-    QHBoxLayout *horizontalLayout_30;
-    QLabel *label_31;
-    QLCDNumber *YlcdNumber_6;
-    QHBoxLayout *horizontalLayout_21;
+    QHBoxLayout *horizontalLayout_31;
+    QLabel *label_32;
+    QLCDNumber *LCDt3;
+    QHBoxLayout *horizontalLayout_23;
     QPushButton *LeftButton_3;
     QLineEdit *CurrXVelEdit_3;
     QPushButton *RightButton_3;
-    QHBoxLayout *horizontalLayout_31;
-    QLabel *label_32;
-    QLCDNumber *YlcdNumber_7;
-    QHBoxLayout *horizontalLayout_23;
+    QHBoxLayout *horizontalLayout_32;
+    QLabel *label_33;
+    QLCDNumber *LCDt4;
+    QHBoxLayout *horizontalLayout_33;
     QPushButton *LeftButton_4;
     QLineEdit *CurrXVelEdit_4;
     QPushButton *RightButton_4;
-    QHBoxLayout *horizontalLayout_32;
-    QLabel *label_33;
-    QLCDNumber *YlcdNumber_8;
-    QHBoxLayout *horizontalLayout_33;
-    QPushButton *LeftButton_5;
-    QLineEdit *CurrXVelEdit_5;
-    QPushButton *RightButton_5;
     QGroupBox *groupBox_4;
-    QVBoxLayout *verticalLayout_20;
+    QVBoxLayout *verticalLayout_2;
+    QPushButton *LeftButton_10;
+    QPushButton *LeftButton_9;
+    QPushButton *LeftButton_7;
     QPushButton *LeftButton_6;
     QPushButton *AutoGet16PhotosButton;
 
@@ -156,7 +146,7 @@ public:
     {
         if (XyPlatform->objectName().isEmpty())
             XyPlatform->setObjectName(QString::fromUtf8("XyPlatform"));
-        XyPlatform->resize(1616, 1162);
+        XyPlatform->resize(1567, 972);
         XyPlatform->setStyleSheet(QString::fromUtf8("background-color: rgb(64, 65, 66);\n"
 "background-color: rgb(240, 240, 240);"));
         verticalLayout_11 = new QVBoxLayout(XyPlatform);
@@ -314,7 +304,8 @@ public:
         VelAxisChooseBox->setSizePolicy(sizePolicy);
         VelAxisChooseBox->setMinimumSize(QSize(0, 0));
         VelAxisChooseBox->setMaximumSize(QSize(130, 16777215));
-        VelAxisChooseBox->setMaximum(1);
+        VelAxisChooseBox->setMinimum(1);
+        VelAxisChooseBox->setMaximum(6);
 
         horizontalLayout_12->addWidget(VelAxisChooseBox);
 
@@ -368,7 +359,8 @@ public:
         AccAxisChooseBox->setSizePolicy(sizePolicy);
         AccAxisChooseBox->setMinimumSize(QSize(0, 0));
         AccAxisChooseBox->setMaximumSize(QSize(130, 16777215));
-        AccAxisChooseBox->setMaximum(1);
+        AccAxisChooseBox->setMinimum(1);
+        AccAxisChooseBox->setMaximum(6);
 
         horizontalLayout_7->addWidget(AccAxisChooseBox);
 
@@ -405,6 +397,16 @@ public:
 
 
         verticalLayout_7->addLayout(verticalLayout_4);
+
+        OpenCardbutton = new QPushButton(widget_2);
+        OpenCardbutton->setObjectName(QString::fromUtf8("OpenCardbutton"));
+
+        verticalLayout_7->addWidget(OpenCardbutton);
+
+        CloseCardbutton = new QPushButton(widget_2);
+        CloseCardbutton->setObjectName(QString::fromUtf8("CloseCardbutton"));
+
+        verticalLayout_7->addWidget(CloseCardbutton);
 
 
         horizontalLayout_5->addWidget(widget_2);
@@ -446,7 +448,7 @@ public:
         moveOnceBtn->setEnabled(true);
         sizePolicy.setHeightForWidth(moveOnceBtn->sizePolicy().hasHeightForWidth());
         moveOnceBtn->setSizePolicy(sizePolicy);
-        moveOnceBtn->setChecked(false);
+        moveOnceBtn->setChecked(true);
 
         verticalLayout_15->addWidget(moveOnceBtn);
 
@@ -455,7 +457,7 @@ public:
         moveEndureBtn->setEnabled(true);
         sizePolicy.setHeightForWidth(moveEndureBtn->sizePolicy().hasHeightForWidth());
         moveEndureBtn->setSizePolicy(sizePolicy);
-        moveEndureBtn->setChecked(true);
+        moveEndureBtn->setChecked(false);
 
         verticalLayout_15->addWidget(moveEndureBtn);
 
@@ -470,154 +472,30 @@ public:
         sizePolicy.setHeightForWidth(groupBox_3->sizePolicy().hasHeightForWidth());
         groupBox_3->setSizePolicy(sizePolicy);
         groupBox_3->setFont(font1);
-        verticalLayout_12 = new QVBoxLayout(groupBox_3);
-        verticalLayout_12->setObjectName(QString::fromUtf8("verticalLayout_12"));
-        horizontalLayout_11 = new QHBoxLayout();
-        horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
-        distance0 = new QRadioButton(groupBox_3);
-        distance0->setObjectName(QString::fromUtf8("distance0"));
-        sizePolicy3.setHeightForWidth(distance0->sizePolicy().hasHeightForWidth());
-        distance0->setSizePolicy(sizePolicy3);
-        distance0->setCheckable(true);
-        distance0->setChecked(false);
+        horizontalLayout_4 = new QHBoxLayout(groupBox_3);
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        MoveDistanceEdit = new QLineEdit(groupBox_3);
+        MoveDistanceEdit->setObjectName(QString::fromUtf8("MoveDistanceEdit"));
+        sizePolicy.setHeightForWidth(MoveDistanceEdit->sizePolicy().hasHeightForWidth());
+        MoveDistanceEdit->setSizePolicy(sizePolicy);
+        MoveDistanceEdit->setMinimumSize(QSize(0, 0));
+        MoveDistanceEdit->setMaximumSize(QSize(120, 60));
+        MoveDistanceEdit->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        MoveDistanceEdit->setCursorPosition(1);
+        MoveDistanceEdit->setReadOnly(false);
 
-        horizontalLayout_11->addWidget(distance0);
+        horizontalLayout_4->addWidget(MoveDistanceEdit);
 
         label_14 = new QLabel(groupBox_3);
         label_14->setObjectName(QString::fromUtf8("label_14"));
 
-        horizontalLayout_11->addWidget(label_14);
-
-
-        verticalLayout_12->addLayout(horizontalLayout_11);
-
-        horizontalLayout_16 = new QHBoxLayout();
-        horizontalLayout_16->setObjectName(QString::fromUtf8("horizontalLayout_16"));
-        distance1 = new QRadioButton(groupBox_3);
-        distance1->setObjectName(QString::fromUtf8("distance1"));
-        sizePolicy3.setHeightForWidth(distance1->sizePolicy().hasHeightForWidth());
-        distance1->setSizePolicy(sizePolicy3);
-        distance1->setCheckable(true);
-        distance1->setChecked(false);
-
-        horizontalLayout_16->addWidget(distance1);
-
-        label_15 = new QLabel(groupBox_3);
-        label_15->setObjectName(QString::fromUtf8("label_15"));
-
-        horizontalLayout_16->addWidget(label_15);
-
-
-        verticalLayout_12->addLayout(horizontalLayout_16);
-
-        horizontalLayout_17 = new QHBoxLayout();
-        horizontalLayout_17->setObjectName(QString::fromUtf8("horizontalLayout_17"));
-        distance2 = new QRadioButton(groupBox_3);
-        distance2->setObjectName(QString::fromUtf8("distance2"));
-        sizePolicy3.setHeightForWidth(distance2->sizePolicy().hasHeightForWidth());
-        distance2->setSizePolicy(sizePolicy3);
-        distance2->setCheckable(true);
-        distance2->setChecked(false);
-
-        horizontalLayout_17->addWidget(distance2);
-
-        label_16 = new QLabel(groupBox_3);
-        label_16->setObjectName(QString::fromUtf8("label_16"));
-
-        horizontalLayout_17->addWidget(label_16);
-
-
-        verticalLayout_12->addLayout(horizontalLayout_17);
-
-        horizontalLayout_18 = new QHBoxLayout();
-        horizontalLayout_18->setObjectName(QString::fromUtf8("horizontalLayout_18"));
-        distance3 = new QRadioButton(groupBox_3);
-        distance3->setObjectName(QString::fromUtf8("distance3"));
-        sizePolicy3.setHeightForWidth(distance3->sizePolicy().hasHeightForWidth());
-        distance3->setSizePolicy(sizePolicy3);
-        distance3->setChecked(true);
-
-        horizontalLayout_18->addWidget(distance3);
-
-        label_17 = new QLabel(groupBox_3);
-        label_17->setObjectName(QString::fromUtf8("label_17"));
-
-        horizontalLayout_18->addWidget(label_17);
-
-
-        verticalLayout_12->addLayout(horizontalLayout_18);
+        horizontalLayout_4->addWidget(label_14);
 
 
         horizontalLayout->addWidget(groupBox_3);
 
-        groupBox_2 = new QGroupBox(frame);
-        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        sizePolicy.setHeightForWidth(groupBox_2->sizePolicy().hasHeightForWidth());
-        groupBox_2->setSizePolicy(sizePolicy);
-        groupBox_2->setFont(font1);
-        verticalLayout_16 = new QVBoxLayout(groupBox_2);
-        verticalLayout_16->setObjectName(QString::fromUtf8("verticalLayout_16"));
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
-        vel0 = new QRadioButton(groupBox_2);
-        vel0->setObjectName(QString::fromUtf8("vel0"));
-        sizePolicy3.setHeightForWidth(vel0->sizePolicy().hasHeightForWidth());
-        vel0->setSizePolicy(sizePolicy3);
-        vel0->setChecked(true);
-
-        horizontalLayout_8->addWidget(vel0);
-
-        label_7 = new QLabel(groupBox_2);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-
-        horizontalLayout_8->addWidget(label_7);
-
-
-        verticalLayout_16->addLayout(horizontalLayout_8);
-
-        horizontalLayout_9 = new QHBoxLayout();
-        horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
-        vel1 = new QRadioButton(groupBox_2);
-        vel1->setObjectName(QString::fromUtf8("vel1"));
-        sizePolicy3.setHeightForWidth(vel1->sizePolicy().hasHeightForWidth());
-        vel1->setSizePolicy(sizePolicy3);
-        vel1->setLayoutDirection(Qt::LeftToRight);
-        vel1->setChecked(false);
-
-        horizontalLayout_9->addWidget(vel1);
-
-        label_8 = new QLabel(groupBox_2);
-        label_8->setObjectName(QString::fromUtf8("label_8"));
-
-        horizontalLayout_9->addWidget(label_8);
-
-
-        verticalLayout_16->addLayout(horizontalLayout_9);
-
-        horizontalLayout_10 = new QHBoxLayout();
-        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
-        vel2 = new QRadioButton(groupBox_2);
-        vel2->setObjectName(QString::fromUtf8("vel2"));
-        sizePolicy3.setHeightForWidth(vel2->sizePolicy().hasHeightForWidth());
-        vel2->setSizePolicy(sizePolicy3);
-        vel2->setChecked(false);
-
-        horizontalLayout_10->addWidget(vel2);
-
-        label_9 = new QLabel(groupBox_2);
-        label_9->setObjectName(QString::fromUtf8("label_9"));
-
-        horizontalLayout_10->addWidget(label_9);
-
-
-        verticalLayout_16->addLayout(horizontalLayout_10);
-
-
-        horizontalLayout->addWidget(groupBox_2);
-
         horizontalLayout->setStretch(0, 1);
         horizontalLayout->setStretch(1, 1);
-        horizontalLayout->setStretch(2, 1);
 
         verticalLayout_13->addLayout(horizontalLayout);
 
@@ -628,30 +506,42 @@ public:
         sizePolicy4.setVerticalStretch(0);
         sizePolicy4.setHeightForWidth(Moveframe->sizePolicy().hasHeightForWidth());
         Moveframe->setSizePolicy(sizePolicy4);
+        Moveframe->setLayoutDirection(Qt::LeftToRight);
         Moveframe->setStyleSheet(QString::fromUtf8("background-color: rgb(254, 254, 254);"));
         Moveframe->setFrameShape(QFrame::NoFrame);
-        gridLayout = new QGridLayout(Moveframe);
+        horizontalLayout_8 = new QHBoxLayout(Moveframe);
+        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
+        gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        DownButton = new QPushButton(Moveframe);
-        DownButton->setObjectName(QString::fromUtf8("DownButton"));
-        sizePolicy.setHeightForWidth(DownButton->sizePolicy().hasHeightForWidth());
-        DownButton->setSizePolicy(sizePolicy);
-        DownButton->setMinimumSize(QSize(0, 0));
-        DownButton->setMaximumSize(QSize(999999, 99999));
-        DownButton->setStyleSheet(QString::fromUtf8(""));
+        CommutButton = new QPushButton(Moveframe);
+        CommutButton->setObjectName(QString::fromUtf8("CommutButton"));
+        sizePolicy.setHeightForWidth(CommutButton->sizePolicy().hasHeightForWidth());
+        CommutButton->setSizePolicy(sizePolicy);
+
+        gridLayout->addWidget(CommutButton, 0, 0, 1, 1);
+
+        UpButton = new QPushButton(Moveframe);
+        UpButton->setObjectName(QString::fromUtf8("UpButton"));
+        sizePolicy.setHeightForWidth(UpButton->sizePolicy().hasHeightForWidth());
+        UpButton->setSizePolicy(sizePolicy);
+        UpButton->setMinimumSize(QSize(0, 0));
+        UpButton->setMaximumSize(QSize(90000, 999999));
+        UpButton->setFocusPolicy(Qt::NoFocus);
+        UpButton->setLayoutDirection(Qt::LeftToRight);
+        UpButton->setStyleSheet(QString::fromUtf8(""));
         QIcon icon;
-        icon.addFile(QString::fromUtf8(":/photos/DownArrow.png"), QSize(), QIcon::Normal, QIcon::Off);
-        DownButton->setIcon(icon);
-        DownButton->setIconSize(QSize(110, 110));
+        icon.addFile(QString::fromUtf8(":/photos/UpArrow.png"), QSize(), QIcon::Normal, QIcon::Off);
+        UpButton->setIcon(icon);
+        UpButton->setIconSize(QSize(110, 110));
 
-        gridLayout->addWidget(DownButton, 2, 1, 1, 1);
+        gridLayout->addWidget(UpButton, 0, 1, 1, 1);
 
-        EnableButton = new QPushButton(Moveframe);
-        EnableButton->setObjectName(QString::fromUtf8("EnableButton"));
-        sizePolicy.setHeightForWidth(EnableButton->sizePolicy().hasHeightForWidth());
-        EnableButton->setSizePolicy(sizePolicy);
+        StopMotionSoftButton = new QPushButton(Moveframe);
+        StopMotionSoftButton->setObjectName(QString::fromUtf8("StopMotionSoftButton"));
+        sizePolicy.setHeightForWidth(StopMotionSoftButton->sizePolicy().hasHeightForWidth());
+        StopMotionSoftButton->setSizePolicy(sizePolicy);
 
-        gridLayout->addWidget(EnableButton, 1, 1, 1, 1);
+        gridLayout->addWidget(StopMotionSoftButton, 0, 2, 1, 1);
 
         LeftButton = new QPushButton(Moveframe);
         LeftButton->setObjectName(QString::fromUtf8("LeftButton"));
@@ -667,12 +557,12 @@ public:
 
         gridLayout->addWidget(LeftButton, 1, 0, 1, 1);
 
-        CommutButton = new QPushButton(Moveframe);
-        CommutButton->setObjectName(QString::fromUtf8("CommutButton"));
-        sizePolicy.setHeightForWidth(CommutButton->sizePolicy().hasHeightForWidth());
-        CommutButton->setSizePolicy(sizePolicy);
+        pushButton = new QPushButton(Moveframe);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        sizePolicy3.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
+        pushButton->setSizePolicy(sizePolicy3);
 
-        gridLayout->addWidget(CommutButton, 0, 0, 1, 1);
+        gridLayout->addWidget(pushButton, 1, 1, 1, 1);
 
         RightButton = new QPushButton(Moveframe);
         RightButton->setObjectName(QString::fromUtf8("RightButton"));
@@ -688,21 +578,25 @@ public:
 
         gridLayout->addWidget(RightButton, 1, 2, 1, 1);
 
-        UpButton = new QPushButton(Moveframe);
-        UpButton->setObjectName(QString::fromUtf8("UpButton"));
-        sizePolicy.setHeightForWidth(UpButton->sizePolicy().hasHeightForWidth());
-        UpButton->setSizePolicy(sizePolicy);
-        UpButton->setMinimumSize(QSize(0, 0));
-        UpButton->setMaximumSize(QSize(90000, 999999));
-        UpButton->setFocusPolicy(Qt::NoFocus);
-        UpButton->setLayoutDirection(Qt::LeftToRight);
-        UpButton->setStyleSheet(QString::fromUtf8(""));
+        DownButton = new QPushButton(Moveframe);
+        DownButton->setObjectName(QString::fromUtf8("DownButton"));
+        sizePolicy.setHeightForWidth(DownButton->sizePolicy().hasHeightForWidth());
+        DownButton->setSizePolicy(sizePolicy);
+        DownButton->setMinimumSize(QSize(0, 0));
+        DownButton->setMaximumSize(QSize(999999, 99999));
+        DownButton->setStyleSheet(QString::fromUtf8(""));
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/photos/UpArrow.png"), QSize(), QIcon::Normal, QIcon::Off);
-        UpButton->setIcon(icon3);
-        UpButton->setIconSize(QSize(110, 110));
+        icon3.addFile(QString::fromUtf8(":/photos/DownArrow.png"), QSize(), QIcon::Normal, QIcon::Off);
+        DownButton->setIcon(icon3);
+        DownButton->setIconSize(QSize(110, 110));
 
-        gridLayout->addWidget(UpButton, 0, 1, 1, 1);
+        gridLayout->addWidget(DownButton, 2, 1, 1, 1);
+
+        gridLayout->setColumnStretch(0, 1);
+        gridLayout->setColumnStretch(1, 1);
+        gridLayout->setColumnStretch(2, 1);
+
+        horizontalLayout_8->addLayout(gridLayout);
 
 
         verticalLayout_13->addWidget(Moveframe);
@@ -718,6 +612,8 @@ public:
         verticalLayout_19->setObjectName(QString::fromUtf8("verticalLayout_19"));
         label = new QLabel(CameraWidget);
         label->setObjectName(QString::fromUtf8("label"));
+        sizePolicy4.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy4);
         label->setStyleSheet(QString::fromUtf8("background-color: rgb(64, 65, 66);"));
         label->setAlignment(Qt::AlignCenter);
 
@@ -737,15 +633,36 @@ public:
 
         verticalLayout->addWidget(openCameraButton);
 
-        savePathEdit = new QLineEdit(groupBox_5);
-        savePathEdit->setObjectName(QString::fromUtf8("savePathEdit"));
-
-        verticalLayout->addWidget(savePathEdit);
-
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         label_4 = new QLabel(groupBox_5);
         label_4->setObjectName(QString::fromUtf8("label_4"));
 
-        verticalLayout->addWidget(label_4);
+        horizontalLayout_3->addWidget(label_4);
+
+        savePathEdit = new QLineEdit(groupBox_5);
+        savePathEdit->setObjectName(QString::fromUtf8("savePathEdit"));
+        sizePolicy.setHeightForWidth(savePathEdit->sizePolicy().hasHeightForWidth());
+        savePathEdit->setSizePolicy(sizePolicy);
+
+        horizontalLayout_3->addWidget(savePathEdit);
+
+        horizontalLayout_3->setStretch(0, 1);
+        horizontalLayout_3->setStretch(1, 5);
+
+        verticalLayout->addLayout(horizontalLayout_3);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        MsgTextEdit = new QTextEdit(groupBox_5);
+        MsgTextEdit->setObjectName(QString::fromUtf8("MsgTextEdit"));
+        sizePolicy.setHeightForWidth(MsgTextEdit->sizePolicy().hasHeightForWidth());
+        MsgTextEdit->setSizePolicy(sizePolicy);
+
+        horizontalLayout_2->addWidget(MsgTextEdit);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
 
 
         verticalLayout_19->addWidget(groupBox_5);
@@ -753,9 +670,6 @@ public:
 
         horizontalLayout_6->addWidget(CameraWidget);
 
-        horizontalLayout_6->setStretch(0, 1);
-        horizontalLayout_6->setStretch(1, 4);
-        horizontalLayout_6->setStretch(2, 4);
 
         verticalLayout_11->addLayout(horizontalLayout_6);
 
@@ -780,62 +694,63 @@ public:
 
         horizontalLayout_26->addWidget(label_23);
 
-        YlcdNumber_2 = new QLCDNumber(widget_3);
-        YlcdNumber_2->setObjectName(QString::fromUtf8("YlcdNumber_2"));
+        LCD1 = new QLCDNumber(widget_3);
+        LCD1->setObjectName(QString::fromUtf8("LCD1"));
         QSizePolicy sizePolicy5(QSizePolicy::Expanding, QSizePolicy::Preferred);
         sizePolicy5.setHorizontalStretch(0);
         sizePolicy5.setVerticalStretch(0);
-        sizePolicy5.setHeightForWidth(YlcdNumber_2->sizePolicy().hasHeightForWidth());
-        YlcdNumber_2->setSizePolicy(sizePolicy5);
-        YlcdNumber_2->setMinimumSize(QSize(0, 0));
-        YlcdNumber_2->setMaximumSize(QSize(9999, 99999));
+        sizePolicy5.setHeightForWidth(LCD1->sizePolicy().hasHeightForWidth());
+        LCD1->setSizePolicy(sizePolicy5);
+        LCD1->setMinimumSize(QSize(0, 0));
+        LCD1->setMaximumSize(QSize(9999, 99999));
         QFont font2;
         font2.setFamily(QString::fromUtf8("Adobe Arabic"));
         font2.setPointSize(7);
-        YlcdNumber_2->setFont(font2);
-        YlcdNumber_2->setStyleSheet(QString::fromUtf8("background-color: rgb(240, 240, 240);"));
-        YlcdNumber_2->setSmallDecimalPoint(true);
-        YlcdNumber_2->setDigitCount(5);
-        YlcdNumber_2->setProperty("value", QVariant(0.000000000000000));
-        YlcdNumber_2->setProperty("intValue", QVariant(0));
+        LCD1->setFont(font2);
+        LCD1->setStyleSheet(QString::fromUtf8("background-color: rgb(240, 240, 240);"));
+        LCD1->setSmallDecimalPoint(true);
+        LCD1->setDigitCount(3);
+        LCD1->setProperty("value", QVariant(0.000000000000000));
+        LCD1->setProperty("intValue", QVariant(0));
 
-        horizontalLayout_26->addWidget(YlcdNumber_2);
+        horizontalLayout_26->addWidget(LCD1);
 
         horizontalLayout_20 = new QHBoxLayout();
         horizontalLayout_20->setObjectName(QString::fromUtf8("horizontalLayout_20"));
-        LeftButton_2 = new QPushButton(widget_3);
-        LeftButton_2->setObjectName(QString::fromUtf8("LeftButton_2"));
-        sizePolicy.setHeightForWidth(LeftButton_2->sizePolicy().hasHeightForWidth());
-        LeftButton_2->setSizePolicy(sizePolicy);
-        LeftButton_2->setMinimumSize(QSize(0, 0));
-        LeftButton_2->setMaximumSize(QSize(99999, 99999));
-        LeftButton_2->setStyleSheet(QString::fromUtf8(""));
-        LeftButton_2->setIcon(icon1);
-        LeftButton_2->setIconSize(QSize(110, 110));
+        LeftButton_1 = new QPushButton(widget_3);
+        LeftButton_1->setObjectName(QString::fromUtf8("LeftButton_1"));
+        sizePolicy.setHeightForWidth(LeftButton_1->sizePolicy().hasHeightForWidth());
+        LeftButton_1->setSizePolicy(sizePolicy);
+        LeftButton_1->setMinimumSize(QSize(0, 0));
+        LeftButton_1->setMaximumSize(QSize(99999, 99999));
+        LeftButton_1->setStyleSheet(QString::fromUtf8(""));
+        LeftButton_1->setIcon(icon1);
+        LeftButton_1->setIconSize(QSize(110, 110));
 
-        horizontalLayout_20->addWidget(LeftButton_2);
+        horizontalLayout_20->addWidget(LeftButton_1);
 
-        CurrXVelEdit_2 = new QLineEdit(widget_3);
-        CurrXVelEdit_2->setObjectName(QString::fromUtf8("CurrXVelEdit_2"));
-        sizePolicy.setHeightForWidth(CurrXVelEdit_2->sizePolicy().hasHeightForWidth());
-        CurrXVelEdit_2->setSizePolicy(sizePolicy);
-        CurrXVelEdit_2->setMinimumSize(QSize(0, 0));
-        CurrXVelEdit_2->setMaximumSize(QSize(120, 60));
-        CurrXVelEdit_2->setReadOnly(true);
+        CurrXVelEdit_1 = new QLineEdit(widget_3);
+        CurrXVelEdit_1->setObjectName(QString::fromUtf8("CurrXVelEdit_1"));
+        sizePolicy.setHeightForWidth(CurrXVelEdit_1->sizePolicy().hasHeightForWidth());
+        CurrXVelEdit_1->setSizePolicy(sizePolicy);
+        CurrXVelEdit_1->setMinimumSize(QSize(0, 0));
+        CurrXVelEdit_1->setMaximumSize(QSize(120, 60));
+        CurrXVelEdit_1->setCursorPosition(2);
+        CurrXVelEdit_1->setReadOnly(false);
 
-        horizontalLayout_20->addWidget(CurrXVelEdit_2);
+        horizontalLayout_20->addWidget(CurrXVelEdit_1);
 
-        RightButton_2 = new QPushButton(widget_3);
-        RightButton_2->setObjectName(QString::fromUtf8("RightButton_2"));
-        sizePolicy.setHeightForWidth(RightButton_2->sizePolicy().hasHeightForWidth());
-        RightButton_2->setSizePolicy(sizePolicy);
-        RightButton_2->setMinimumSize(QSize(0, 0));
-        RightButton_2->setMaximumSize(QSize(99999, 999999));
-        RightButton_2->setStyleSheet(QString::fromUtf8(""));
-        RightButton_2->setIcon(icon2);
-        RightButton_2->setIconSize(QSize(110, 110));
+        RightButton_1 = new QPushButton(widget_3);
+        RightButton_1->setObjectName(QString::fromUtf8("RightButton_1"));
+        sizePolicy.setHeightForWidth(RightButton_1->sizePolicy().hasHeightForWidth());
+        RightButton_1->setSizePolicy(sizePolicy);
+        RightButton_1->setMinimumSize(QSize(0, 0));
+        RightButton_1->setMaximumSize(QSize(99999, 999999));
+        RightButton_1->setStyleSheet(QString::fromUtf8(""));
+        RightButton_1->setIcon(icon2);
+        RightButton_1->setIconSize(QSize(110, 110));
 
-        horizontalLayout_20->addWidget(RightButton_2);
+        horizontalLayout_20->addWidget(RightButton_1);
 
 
         horizontalLayout_26->addLayout(horizontalLayout_20);
@@ -859,56 +774,56 @@ public:
 
         horizontalLayout_30->addWidget(label_31);
 
-        YlcdNumber_6 = new QLCDNumber(widget_3);
-        YlcdNumber_6->setObjectName(QString::fromUtf8("YlcdNumber_6"));
-        sizePolicy5.setHeightForWidth(YlcdNumber_6->sizePolicy().hasHeightForWidth());
-        YlcdNumber_6->setSizePolicy(sizePolicy5);
-        YlcdNumber_6->setMinimumSize(QSize(0, 0));
-        YlcdNumber_6->setMaximumSize(QSize(9999, 99999));
-        YlcdNumber_6->setFont(font2);
-        YlcdNumber_6->setStyleSheet(QString::fromUtf8("background-color: rgb(240, 240, 240);"));
-        YlcdNumber_6->setSmallDecimalPoint(true);
-        YlcdNumber_6->setDigitCount(5);
-        YlcdNumber_6->setProperty("value", QVariant(0.000000000000000));
-        YlcdNumber_6->setProperty("intValue", QVariant(0));
+        LCD2 = new QLCDNumber(widget_3);
+        LCD2->setObjectName(QString::fromUtf8("LCD2"));
+        sizePolicy5.setHeightForWidth(LCD2->sizePolicy().hasHeightForWidth());
+        LCD2->setSizePolicy(sizePolicy5);
+        LCD2->setMinimumSize(QSize(0, 0));
+        LCD2->setMaximumSize(QSize(9999, 99999));
+        LCD2->setFont(font2);
+        LCD2->setStyleSheet(QString::fromUtf8("background-color: rgb(240, 240, 240);"));
+        LCD2->setSmallDecimalPoint(true);
+        LCD2->setDigitCount(3);
+        LCD2->setProperty("value", QVariant(0.000000000000000));
+        LCD2->setProperty("intValue", QVariant(0));
 
-        horizontalLayout_30->addWidget(YlcdNumber_6);
+        horizontalLayout_30->addWidget(LCD2);
 
         horizontalLayout_21 = new QHBoxLayout();
         horizontalLayout_21->setObjectName(QString::fromUtf8("horizontalLayout_21"));
-        LeftButton_3 = new QPushButton(widget_3);
-        LeftButton_3->setObjectName(QString::fromUtf8("LeftButton_3"));
-        sizePolicy.setHeightForWidth(LeftButton_3->sizePolicy().hasHeightForWidth());
-        LeftButton_3->setSizePolicy(sizePolicy);
-        LeftButton_3->setMinimumSize(QSize(0, 0));
-        LeftButton_3->setMaximumSize(QSize(99999, 99999));
-        LeftButton_3->setStyleSheet(QString::fromUtf8(""));
-        LeftButton_3->setIcon(icon1);
-        LeftButton_3->setIconSize(QSize(110, 110));
+        LeftButton_2 = new QPushButton(widget_3);
+        LeftButton_2->setObjectName(QString::fromUtf8("LeftButton_2"));
+        sizePolicy.setHeightForWidth(LeftButton_2->sizePolicy().hasHeightForWidth());
+        LeftButton_2->setSizePolicy(sizePolicy);
+        LeftButton_2->setMinimumSize(QSize(0, 0));
+        LeftButton_2->setMaximumSize(QSize(99999, 99999));
+        LeftButton_2->setStyleSheet(QString::fromUtf8(""));
+        LeftButton_2->setIcon(icon1);
+        LeftButton_2->setIconSize(QSize(110, 110));
 
-        horizontalLayout_21->addWidget(LeftButton_3);
+        horizontalLayout_21->addWidget(LeftButton_2);
 
-        CurrXVelEdit_3 = new QLineEdit(widget_3);
-        CurrXVelEdit_3->setObjectName(QString::fromUtf8("CurrXVelEdit_3"));
-        sizePolicy.setHeightForWidth(CurrXVelEdit_3->sizePolicy().hasHeightForWidth());
-        CurrXVelEdit_3->setSizePolicy(sizePolicy);
-        CurrXVelEdit_3->setMinimumSize(QSize(0, 0));
-        CurrXVelEdit_3->setMaximumSize(QSize(120, 60));
-        CurrXVelEdit_3->setReadOnly(true);
+        CurrXVelEdit_2 = new QLineEdit(widget_3);
+        CurrXVelEdit_2->setObjectName(QString::fromUtf8("CurrXVelEdit_2"));
+        sizePolicy.setHeightForWidth(CurrXVelEdit_2->sizePolicy().hasHeightForWidth());
+        CurrXVelEdit_2->setSizePolicy(sizePolicy);
+        CurrXVelEdit_2->setMinimumSize(QSize(0, 0));
+        CurrXVelEdit_2->setMaximumSize(QSize(120, 60));
+        CurrXVelEdit_2->setReadOnly(false);
 
-        horizontalLayout_21->addWidget(CurrXVelEdit_3);
+        horizontalLayout_21->addWidget(CurrXVelEdit_2);
 
-        RightButton_3 = new QPushButton(widget_3);
-        RightButton_3->setObjectName(QString::fromUtf8("RightButton_3"));
-        sizePolicy.setHeightForWidth(RightButton_3->sizePolicy().hasHeightForWidth());
-        RightButton_3->setSizePolicy(sizePolicy);
-        RightButton_3->setMinimumSize(QSize(0, 0));
-        RightButton_3->setMaximumSize(QSize(99999, 999999));
-        RightButton_3->setStyleSheet(QString::fromUtf8(""));
-        RightButton_3->setIcon(icon2);
-        RightButton_3->setIconSize(QSize(110, 110));
+        RightButton_2 = new QPushButton(widget_3);
+        RightButton_2->setObjectName(QString::fromUtf8("RightButton_2"));
+        sizePolicy.setHeightForWidth(RightButton_2->sizePolicy().hasHeightForWidth());
+        RightButton_2->setSizePolicy(sizePolicy);
+        RightButton_2->setMinimumSize(QSize(0, 0));
+        RightButton_2->setMaximumSize(QSize(99999, 999999));
+        RightButton_2->setStyleSheet(QString::fromUtf8(""));
+        RightButton_2->setIcon(icon2);
+        RightButton_2->setIconSize(QSize(110, 110));
 
-        horizontalLayout_21->addWidget(RightButton_3);
+        horizontalLayout_21->addWidget(RightButton_2);
 
 
         horizontalLayout_30->addLayout(horizontalLayout_21);
@@ -932,56 +847,56 @@ public:
 
         horizontalLayout_31->addWidget(label_32);
 
-        YlcdNumber_7 = new QLCDNumber(widget_3);
-        YlcdNumber_7->setObjectName(QString::fromUtf8("YlcdNumber_7"));
-        sizePolicy5.setHeightForWidth(YlcdNumber_7->sizePolicy().hasHeightForWidth());
-        YlcdNumber_7->setSizePolicy(sizePolicy5);
-        YlcdNumber_7->setMinimumSize(QSize(0, 0));
-        YlcdNumber_7->setMaximumSize(QSize(9999, 99999));
-        YlcdNumber_7->setFont(font2);
-        YlcdNumber_7->setStyleSheet(QString::fromUtf8("background-color: rgb(240, 240, 240);"));
-        YlcdNumber_7->setSmallDecimalPoint(true);
-        YlcdNumber_7->setDigitCount(5);
-        YlcdNumber_7->setProperty("value", QVariant(0.000000000000000));
-        YlcdNumber_7->setProperty("intValue", QVariant(0));
+        LCDt3 = new QLCDNumber(widget_3);
+        LCDt3->setObjectName(QString::fromUtf8("LCDt3"));
+        sizePolicy5.setHeightForWidth(LCDt3->sizePolicy().hasHeightForWidth());
+        LCDt3->setSizePolicy(sizePolicy5);
+        LCDt3->setMinimumSize(QSize(0, 0));
+        LCDt3->setMaximumSize(QSize(9999, 99999));
+        LCDt3->setFont(font2);
+        LCDt3->setStyleSheet(QString::fromUtf8("background-color: rgb(240, 240, 240);"));
+        LCDt3->setSmallDecimalPoint(true);
+        LCDt3->setDigitCount(3);
+        LCDt3->setProperty("value", QVariant(0.000000000000000));
+        LCDt3->setProperty("intValue", QVariant(0));
 
-        horizontalLayout_31->addWidget(YlcdNumber_7);
+        horizontalLayout_31->addWidget(LCDt3);
 
         horizontalLayout_23 = new QHBoxLayout();
         horizontalLayout_23->setObjectName(QString::fromUtf8("horizontalLayout_23"));
-        LeftButton_4 = new QPushButton(widget_3);
-        LeftButton_4->setObjectName(QString::fromUtf8("LeftButton_4"));
-        sizePolicy.setHeightForWidth(LeftButton_4->sizePolicy().hasHeightForWidth());
-        LeftButton_4->setSizePolicy(sizePolicy);
-        LeftButton_4->setMinimumSize(QSize(0, 0));
-        LeftButton_4->setMaximumSize(QSize(99999, 99999));
-        LeftButton_4->setStyleSheet(QString::fromUtf8(""));
-        LeftButton_4->setIcon(icon1);
-        LeftButton_4->setIconSize(QSize(110, 110));
+        LeftButton_3 = new QPushButton(widget_3);
+        LeftButton_3->setObjectName(QString::fromUtf8("LeftButton_3"));
+        sizePolicy.setHeightForWidth(LeftButton_3->sizePolicy().hasHeightForWidth());
+        LeftButton_3->setSizePolicy(sizePolicy);
+        LeftButton_3->setMinimumSize(QSize(0, 0));
+        LeftButton_3->setMaximumSize(QSize(99999, 99999));
+        LeftButton_3->setStyleSheet(QString::fromUtf8(""));
+        LeftButton_3->setIcon(icon1);
+        LeftButton_3->setIconSize(QSize(110, 110));
 
-        horizontalLayout_23->addWidget(LeftButton_4);
+        horizontalLayout_23->addWidget(LeftButton_3);
 
-        CurrXVelEdit_4 = new QLineEdit(widget_3);
-        CurrXVelEdit_4->setObjectName(QString::fromUtf8("CurrXVelEdit_4"));
-        sizePolicy.setHeightForWidth(CurrXVelEdit_4->sizePolicy().hasHeightForWidth());
-        CurrXVelEdit_4->setSizePolicy(sizePolicy);
-        CurrXVelEdit_4->setMinimumSize(QSize(0, 0));
-        CurrXVelEdit_4->setMaximumSize(QSize(120, 60));
-        CurrXVelEdit_4->setReadOnly(true);
+        CurrXVelEdit_3 = new QLineEdit(widget_3);
+        CurrXVelEdit_3->setObjectName(QString::fromUtf8("CurrXVelEdit_3"));
+        sizePolicy.setHeightForWidth(CurrXVelEdit_3->sizePolicy().hasHeightForWidth());
+        CurrXVelEdit_3->setSizePolicy(sizePolicy);
+        CurrXVelEdit_3->setMinimumSize(QSize(0, 0));
+        CurrXVelEdit_3->setMaximumSize(QSize(120, 60));
+        CurrXVelEdit_3->setReadOnly(false);
 
-        horizontalLayout_23->addWidget(CurrXVelEdit_4);
+        horizontalLayout_23->addWidget(CurrXVelEdit_3);
 
-        RightButton_4 = new QPushButton(widget_3);
-        RightButton_4->setObjectName(QString::fromUtf8("RightButton_4"));
-        sizePolicy.setHeightForWidth(RightButton_4->sizePolicy().hasHeightForWidth());
-        RightButton_4->setSizePolicy(sizePolicy);
-        RightButton_4->setMinimumSize(QSize(0, 0));
-        RightButton_4->setMaximumSize(QSize(99999, 999999));
-        RightButton_4->setStyleSheet(QString::fromUtf8(""));
-        RightButton_4->setIcon(icon2);
-        RightButton_4->setIconSize(QSize(110, 110));
+        RightButton_3 = new QPushButton(widget_3);
+        RightButton_3->setObjectName(QString::fromUtf8("RightButton_3"));
+        sizePolicy.setHeightForWidth(RightButton_3->sizePolicy().hasHeightForWidth());
+        RightButton_3->setSizePolicy(sizePolicy);
+        RightButton_3->setMinimumSize(QSize(0, 0));
+        RightButton_3->setMaximumSize(QSize(99999, 999999));
+        RightButton_3->setStyleSheet(QString::fromUtf8(""));
+        RightButton_3->setIcon(icon2);
+        RightButton_3->setIconSize(QSize(110, 110));
 
-        horizontalLayout_23->addWidget(RightButton_4);
+        horizontalLayout_23->addWidget(RightButton_3);
 
 
         horizontalLayout_31->addLayout(horizontalLayout_23);
@@ -1005,56 +920,57 @@ public:
 
         horizontalLayout_32->addWidget(label_33);
 
-        YlcdNumber_8 = new QLCDNumber(widget_3);
-        YlcdNumber_8->setObjectName(QString::fromUtf8("YlcdNumber_8"));
-        sizePolicy5.setHeightForWidth(YlcdNumber_8->sizePolicy().hasHeightForWidth());
-        YlcdNumber_8->setSizePolicy(sizePolicy5);
-        YlcdNumber_8->setMinimumSize(QSize(0, 0));
-        YlcdNumber_8->setMaximumSize(QSize(9999, 99999));
-        YlcdNumber_8->setFont(font2);
-        YlcdNumber_8->setStyleSheet(QString::fromUtf8("background-color: rgb(240, 240, 240);"));
-        YlcdNumber_8->setSmallDecimalPoint(true);
-        YlcdNumber_8->setDigitCount(5);
-        YlcdNumber_8->setProperty("value", QVariant(0.000000000000000));
-        YlcdNumber_8->setProperty("intValue", QVariant(0));
+        LCDt4 = new QLCDNumber(widget_3);
+        LCDt4->setObjectName(QString::fromUtf8("LCDt4"));
+        sizePolicy5.setHeightForWidth(LCDt4->sizePolicy().hasHeightForWidth());
+        LCDt4->setSizePolicy(sizePolicy5);
+        LCDt4->setMinimumSize(QSize(0, 0));
+        LCDt4->setMaximumSize(QSize(9999, 99999));
+        LCDt4->setFont(font2);
+        LCDt4->setStyleSheet(QString::fromUtf8("background-color: rgb(240, 240, 240);"));
+        LCDt4->setSmallDecimalPoint(false);
+        LCDt4->setDigitCount(3);
+        LCDt4->setSegmentStyle(QLCDNumber::Filled);
+        LCDt4->setProperty("value", QVariant(0.000000000000000));
+        LCDt4->setProperty("intValue", QVariant(0));
 
-        horizontalLayout_32->addWidget(YlcdNumber_8);
+        horizontalLayout_32->addWidget(LCDt4);
 
         horizontalLayout_33 = new QHBoxLayout();
         horizontalLayout_33->setObjectName(QString::fromUtf8("horizontalLayout_33"));
-        LeftButton_5 = new QPushButton(widget_3);
-        LeftButton_5->setObjectName(QString::fromUtf8("LeftButton_5"));
-        sizePolicy.setHeightForWidth(LeftButton_5->sizePolicy().hasHeightForWidth());
-        LeftButton_5->setSizePolicy(sizePolicy);
-        LeftButton_5->setMinimumSize(QSize(0, 0));
-        LeftButton_5->setMaximumSize(QSize(99999, 99999));
-        LeftButton_5->setStyleSheet(QString::fromUtf8(""));
-        LeftButton_5->setIcon(icon1);
-        LeftButton_5->setIconSize(QSize(110, 110));
+        LeftButton_4 = new QPushButton(widget_3);
+        LeftButton_4->setObjectName(QString::fromUtf8("LeftButton_4"));
+        sizePolicy.setHeightForWidth(LeftButton_4->sizePolicy().hasHeightForWidth());
+        LeftButton_4->setSizePolicy(sizePolicy);
+        LeftButton_4->setMinimumSize(QSize(0, 0));
+        LeftButton_4->setMaximumSize(QSize(99999, 99999));
+        LeftButton_4->setStyleSheet(QString::fromUtf8(""));
+        LeftButton_4->setIcon(icon1);
+        LeftButton_4->setIconSize(QSize(110, 110));
 
-        horizontalLayout_33->addWidget(LeftButton_5);
+        horizontalLayout_33->addWidget(LeftButton_4);
 
-        CurrXVelEdit_5 = new QLineEdit(widget_3);
-        CurrXVelEdit_5->setObjectName(QString::fromUtf8("CurrXVelEdit_5"));
-        sizePolicy.setHeightForWidth(CurrXVelEdit_5->sizePolicy().hasHeightForWidth());
-        CurrXVelEdit_5->setSizePolicy(sizePolicy);
-        CurrXVelEdit_5->setMinimumSize(QSize(0, 0));
-        CurrXVelEdit_5->setMaximumSize(QSize(120, 60));
-        CurrXVelEdit_5->setReadOnly(true);
+        CurrXVelEdit_4 = new QLineEdit(widget_3);
+        CurrXVelEdit_4->setObjectName(QString::fromUtf8("CurrXVelEdit_4"));
+        sizePolicy.setHeightForWidth(CurrXVelEdit_4->sizePolicy().hasHeightForWidth());
+        CurrXVelEdit_4->setSizePolicy(sizePolicy);
+        CurrXVelEdit_4->setMinimumSize(QSize(0, 0));
+        CurrXVelEdit_4->setMaximumSize(QSize(120, 60));
+        CurrXVelEdit_4->setReadOnly(false);
 
-        horizontalLayout_33->addWidget(CurrXVelEdit_5);
+        horizontalLayout_33->addWidget(CurrXVelEdit_4);
 
-        RightButton_5 = new QPushButton(widget_3);
-        RightButton_5->setObjectName(QString::fromUtf8("RightButton_5"));
-        sizePolicy.setHeightForWidth(RightButton_5->sizePolicy().hasHeightForWidth());
-        RightButton_5->setSizePolicy(sizePolicy);
-        RightButton_5->setMinimumSize(QSize(0, 0));
-        RightButton_5->setMaximumSize(QSize(99999, 999999));
-        RightButton_5->setStyleSheet(QString::fromUtf8(""));
-        RightButton_5->setIcon(icon2);
-        RightButton_5->setIconSize(QSize(110, 110));
+        RightButton_4 = new QPushButton(widget_3);
+        RightButton_4->setObjectName(QString::fromUtf8("RightButton_4"));
+        sizePolicy.setHeightForWidth(RightButton_4->sizePolicy().hasHeightForWidth());
+        RightButton_4->setSizePolicy(sizePolicy);
+        RightButton_4->setMinimumSize(QSize(0, 0));
+        RightButton_4->setMaximumSize(QSize(99999, 999999));
+        RightButton_4->setStyleSheet(QString::fromUtf8(""));
+        RightButton_4->setIcon(icon2);
+        RightButton_4->setIconSize(QSize(110, 110));
 
-        horizontalLayout_33->addWidget(RightButton_5);
+        horizontalLayout_33->addWidget(RightButton_4);
 
 
         horizontalLayout_32->addLayout(horizontalLayout_33);
@@ -1070,8 +986,44 @@ public:
 
         groupBox_4 = new QGroupBox(RotationAxisWidget);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
-        verticalLayout_20 = new QVBoxLayout(groupBox_4);
-        verticalLayout_20->setObjectName(QString::fromUtf8("verticalLayout_20"));
+        verticalLayout_2 = new QVBoxLayout(groupBox_4);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        LeftButton_10 = new QPushButton(groupBox_4);
+        LeftButton_10->setObjectName(QString::fromUtf8("LeftButton_10"));
+        sizePolicy.setHeightForWidth(LeftButton_10->sizePolicy().hasHeightForWidth());
+        LeftButton_10->setSizePolicy(sizePolicy);
+        LeftButton_10->setMinimumSize(QSize(0, 0));
+        LeftButton_10->setMaximumSize(QSize(99999, 99999));
+        LeftButton_10->setStyleSheet(QString::fromUtf8(""));
+        LeftButton_10->setIcon(icon1);
+        LeftButton_10->setIconSize(QSize(110, 110));
+
+        verticalLayout_2->addWidget(LeftButton_10);
+
+        LeftButton_9 = new QPushButton(groupBox_4);
+        LeftButton_9->setObjectName(QString::fromUtf8("LeftButton_9"));
+        sizePolicy.setHeightForWidth(LeftButton_9->sizePolicy().hasHeightForWidth());
+        LeftButton_9->setSizePolicy(sizePolicy);
+        LeftButton_9->setMinimumSize(QSize(0, 0));
+        LeftButton_9->setMaximumSize(QSize(99999, 99999));
+        LeftButton_9->setStyleSheet(QString::fromUtf8(""));
+        LeftButton_9->setIcon(icon1);
+        LeftButton_9->setIconSize(QSize(110, 110));
+
+        verticalLayout_2->addWidget(LeftButton_9);
+
+        LeftButton_7 = new QPushButton(groupBox_4);
+        LeftButton_7->setObjectName(QString::fromUtf8("LeftButton_7"));
+        sizePolicy.setHeightForWidth(LeftButton_7->sizePolicy().hasHeightForWidth());
+        LeftButton_7->setSizePolicy(sizePolicy);
+        LeftButton_7->setMinimumSize(QSize(0, 0));
+        LeftButton_7->setMaximumSize(QSize(99999, 99999));
+        LeftButton_7->setStyleSheet(QString::fromUtf8(""));
+        LeftButton_7->setIcon(icon1);
+        LeftButton_7->setIconSize(QSize(110, 110));
+
+        verticalLayout_2->addWidget(LeftButton_7);
+
         LeftButton_6 = new QPushButton(groupBox_4);
         LeftButton_6->setObjectName(QString::fromUtf8("LeftButton_6"));
         sizePolicy.setHeightForWidth(LeftButton_6->sizePolicy().hasHeightForWidth());
@@ -1082,7 +1034,7 @@ public:
         LeftButton_6->setIcon(icon1);
         LeftButton_6->setIconSize(QSize(110, 110));
 
-        verticalLayout_20->addWidget(LeftButton_6);
+        verticalLayout_2->addWidget(LeftButton_6);
 
         AutoGet16PhotosButton = new QPushButton(groupBox_4);
         AutoGet16PhotosButton->setObjectName(QString::fromUtf8("AutoGet16PhotosButton"));
@@ -1094,7 +1046,7 @@ public:
         AutoGet16PhotosButton->setIcon(icon1);
         AutoGet16PhotosButton->setIconSize(QSize(110, 110));
 
-        verticalLayout_20->addWidget(AutoGet16PhotosButton);
+        verticalLayout_2->addWidget(AutoGet16PhotosButton);
 
 
         horizontalLayout_19->addWidget(groupBox_4);
@@ -1104,7 +1056,8 @@ public:
 
         verticalLayout_11->addWidget(RotationAxisWidget);
 
-        verticalLayout_11->setStretch(0, 3);
+        verticalLayout_11->setStretch(0, 4);
+        verticalLayout_11->setStretch(1, 1);
 
         retranslateUi(XyPlatform);
 
@@ -1125,27 +1078,17 @@ public:
         label_10->setText(QCoreApplication::translate("XyPlatform", "\345\212\240\351\200\237\345\272\246\350\256\276\345\256\232", nullptr));
         label_6->setText(QCoreApplication::translate("XyPlatform", "mm/s^2", nullptr));
         accPushButton->setText(QCoreApplication::translate("XyPlatform", "\347\241\256\350\256\244", nullptr));
+        OpenCardbutton->setText(QCoreApplication::translate("XyPlatform", "\346\211\223\345\274\200\346\235\277\345\215\241", nullptr));
+        CloseCardbutton->setText(QCoreApplication::translate("XyPlatform", "\345\205\263\351\227\255\346\235\277\345\215\241", nullptr));
         groupBox->setTitle(QCoreApplication::translate("XyPlatform", "\346\250\241\345\274\217\351\200\211\346\213\251", nullptr));
         moveOnceBtn->setText(QCoreApplication::translate("XyPlatform", "\347\202\271\346\214\211\346\255\245\350\277\233", nullptr));
         moveEndureBtn->setText(QCoreApplication::translate("XyPlatform", "\346\214\201\347\273\255\347\247\273\345\212\250", nullptr));
         groupBox_3->setTitle(QCoreApplication::translate("XyPlatform", "\346\255\245\350\277\233\350\267\235\347\246\273", nullptr));
-        distance0->setText(QCoreApplication::translate("XyPlatform", "0.01", nullptr));
-        label_14->setText(QCoreApplication::translate("XyPlatform", "mm/s", nullptr));
-        distance1->setText(QCoreApplication::translate("XyPlatform", "0.1", nullptr));
-        label_15->setText(QCoreApplication::translate("XyPlatform", "mm/s", nullptr));
-        distance2->setText(QCoreApplication::translate("XyPlatform", "1", nullptr));
-        label_16->setText(QCoreApplication::translate("XyPlatform", "mm/s", nullptr));
-        distance3->setText(QCoreApplication::translate("XyPlatform", "10", nullptr));
-        label_17->setText(QCoreApplication::translate("XyPlatform", "mm/s", nullptr));
-        groupBox_2->setTitle(QCoreApplication::translate("XyPlatform", "\351\200\237\345\272\246\351\200\211\346\213\251", nullptr));
-        vel0->setText(QCoreApplication::translate("XyPlatform", "10", nullptr));
-        label_7->setText(QCoreApplication::translate("XyPlatform", "mm/s", nullptr));
-        vel1->setText(QCoreApplication::translate("XyPlatform", "20", nullptr));
-        label_8->setText(QCoreApplication::translate("XyPlatform", "mm/s", nullptr));
-        vel2->setText(QCoreApplication::translate("XyPlatform", " 40", nullptr));
-        label_9->setText(QCoreApplication::translate("XyPlatform", "mm/s", nullptr));
-        DownButton->setText(QCoreApplication::translate("XyPlatform", "Y-", nullptr));
-        EnableButton->setText(QCoreApplication::translate("XyPlatform", "\344\275\277\350\203\275", nullptr));
+        MoveDistanceEdit->setText(QCoreApplication::translate("XyPlatform", "5", nullptr));
+        label_14->setText(QCoreApplication::translate("XyPlatform", "mm", nullptr));
+        CommutButton->setText(QCoreApplication::translate("XyPlatform", "\346\215\242\345\220\221", nullptr));
+        UpButton->setText(QCoreApplication::translate("XyPlatform", "Y+", nullptr));
+        StopMotionSoftButton->setText(QCoreApplication::translate("XyPlatform", "\350\275\257\345\201\234\346\255\242", nullptr));
 #if QT_CONFIG(tooltip)
         LeftButton->setToolTip(QCoreApplication::translate("XyPlatform", "\345\220\221\345\267\246\347\247\273\345\212\250", nullptr));
 #endif // QT_CONFIG(tooltip)
@@ -1153,16 +1096,26 @@ public:
         LeftButton->setStatusTip(QString());
 #endif // QT_CONFIG(statustip)
         LeftButton->setText(QCoreApplication::translate("XyPlatform", "X-", nullptr));
-        CommutButton->setText(QCoreApplication::translate("XyPlatform", "\346\215\242\345\220\221", nullptr));
+        pushButton->setText(QCoreApplication::translate("XyPlatform", "\346\265\213\350\257\225", nullptr));
         RightButton->setText(QCoreApplication::translate("XyPlatform", "X+", nullptr));
-        UpButton->setText(QCoreApplication::translate("XyPlatform", "Y+", nullptr));
+        DownButton->setText(QCoreApplication::translate("XyPlatform", "Y-", nullptr));
         label->setText(QCoreApplication::translate("XyPlatform", "\345\233\276\347\211\207\345\261\225\347\244\272", nullptr));
         groupBox_5->setTitle(QCoreApplication::translate("XyPlatform", "\345\212\237\350\203\275\351\200\211\346\213\251", nullptr));
         savePhotoButton->setText(QCoreApplication::translate("XyPlatform", "\344\277\235\345\255\230\345\233\276\347\211\207", nullptr));
         openCameraButton->setText(QCoreApplication::translate("XyPlatform", "\346\211\223\345\274\200\347\233\270\346\234\272", nullptr));
-        savePathEdit->setText(QCoreApplication::translate("XyPlatform", "\344\277\235\345\255\230\350\267\257\345\276\204\357\274\232", nullptr));
-        label_4->setText(QCoreApplication::translate("XyPlatform", "\346\241\214\351\235\242", nullptr));
+        label_4->setText(QCoreApplication::translate("XyPlatform", "\344\277\235\345\255\230\350\267\257\345\276\204\357\274\232", nullptr));
+        savePathEdit->setText(QCoreApplication::translate("XyPlatform", "/desktop", nullptr));
         label_23->setText(QCoreApplication::translate("XyPlatform", "\350\275\254\345\217\2601 \350\247\222\345\272\246(\302\260)", nullptr));
+#if QT_CONFIG(tooltip)
+        LeftButton_1->setToolTip(QCoreApplication::translate("XyPlatform", "\345\220\221\345\267\246\347\247\273\345\212\250", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(statustip)
+        LeftButton_1->setStatusTip(QString());
+#endif // QT_CONFIG(statustip)
+        LeftButton_1->setText(QCoreApplication::translate("XyPlatform", "Angle-", nullptr));
+        CurrXVelEdit_1->setText(QCoreApplication::translate("XyPlatform", "45", nullptr));
+        RightButton_1->setText(QCoreApplication::translate("XyPlatform", "Angle+", nullptr));
+        label_31->setText(QCoreApplication::translate("XyPlatform", "\350\275\254\345\217\2602 \350\247\222\345\272\246(\302\260)", nullptr));
 #if QT_CONFIG(tooltip)
         LeftButton_2->setToolTip(QCoreApplication::translate("XyPlatform", "\345\220\221\345\267\246\347\247\273\345\212\250", nullptr));
 #endif // QT_CONFIG(tooltip)
@@ -1170,9 +1123,9 @@ public:
         LeftButton_2->setStatusTip(QString());
 #endif // QT_CONFIG(statustip)
         LeftButton_2->setText(QCoreApplication::translate("XyPlatform", "Angle-", nullptr));
-        CurrXVelEdit_2->setText(QCoreApplication::translate("XyPlatform", "0", nullptr));
+        CurrXVelEdit_2->setText(QCoreApplication::translate("XyPlatform", "45", nullptr));
         RightButton_2->setText(QCoreApplication::translate("XyPlatform", "Angle+", nullptr));
-        label_31->setText(QCoreApplication::translate("XyPlatform", "\350\275\254\345\217\2602 \350\247\222\345\272\246(\302\260)", nullptr));
+        label_32->setText(QCoreApplication::translate("XyPlatform", "\350\275\254\345\217\2603 \350\247\222\345\272\246(\302\260)", nullptr));
 #if QT_CONFIG(tooltip)
         LeftButton_3->setToolTip(QCoreApplication::translate("XyPlatform", "\345\220\221\345\267\246\347\247\273\345\212\250", nullptr));
 #endif // QT_CONFIG(tooltip)
@@ -1180,9 +1133,9 @@ public:
         LeftButton_3->setStatusTip(QString());
 #endif // QT_CONFIG(statustip)
         LeftButton_3->setText(QCoreApplication::translate("XyPlatform", "Angle-", nullptr));
-        CurrXVelEdit_3->setText(QCoreApplication::translate("XyPlatform", "0", nullptr));
+        CurrXVelEdit_3->setText(QCoreApplication::translate("XyPlatform", "45", nullptr));
         RightButton_3->setText(QCoreApplication::translate("XyPlatform", "Angle+", nullptr));
-        label_32->setText(QCoreApplication::translate("XyPlatform", "\350\275\254\345\217\2603 \350\247\222\345\272\246(\302\260)", nullptr));
+        label_33->setText(QCoreApplication::translate("XyPlatform", "\350\275\254\345\217\2604 \350\247\222\345\272\246(\302\260)", nullptr));
 #if QT_CONFIG(tooltip)
         LeftButton_4->setToolTip(QCoreApplication::translate("XyPlatform", "\345\220\221\345\267\246\347\247\273\345\212\250", nullptr));
 #endif // QT_CONFIG(tooltip)
@@ -1190,19 +1143,30 @@ public:
         LeftButton_4->setStatusTip(QString());
 #endif // QT_CONFIG(statustip)
         LeftButton_4->setText(QCoreApplication::translate("XyPlatform", "Angle-", nullptr));
-        CurrXVelEdit_4->setText(QCoreApplication::translate("XyPlatform", "0", nullptr));
+        CurrXVelEdit_4->setText(QCoreApplication::translate("XyPlatform", "45", nullptr));
         RightButton_4->setText(QCoreApplication::translate("XyPlatform", "Angle+", nullptr));
-        label_33->setText(QCoreApplication::translate("XyPlatform", "\350\275\254\345\217\2604 \350\247\222\345\272\246(\302\260)", nullptr));
+        groupBox_4->setTitle(QCoreApplication::translate("XyPlatform", "\350\207\252\345\212\250\345\214\226\345\212\237\350\203\275", nullptr));
 #if QT_CONFIG(tooltip)
-        LeftButton_5->setToolTip(QCoreApplication::translate("XyPlatform", "\345\220\221\345\267\246\347\247\273\345\212\250", nullptr));
+        LeftButton_10->setToolTip(QCoreApplication::translate("XyPlatform", "\345\220\221\345\267\246\347\247\273\345\212\250", nullptr));
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(statustip)
-        LeftButton_5->setStatusTip(QString());
+        LeftButton_10->setStatusTip(QString());
 #endif // QT_CONFIG(statustip)
-        LeftButton_5->setText(QCoreApplication::translate("XyPlatform", "Angle-", nullptr));
-        CurrXVelEdit_5->setText(QCoreApplication::translate("XyPlatform", "0", nullptr));
-        RightButton_5->setText(QCoreApplication::translate("XyPlatform", "Angle+", nullptr));
-        groupBox_4->setTitle(QCoreApplication::translate("XyPlatform", "\350\207\252\345\212\250\345\214\226\345\212\237\350\203\275", nullptr));
+        LeftButton_10->setText(QCoreApplication::translate("XyPlatform", "\345\220\270\347\233\230\345\220\270/\345\220\220\346\260\224", nullptr));
+#if QT_CONFIG(tooltip)
+        LeftButton_9->setToolTip(QCoreApplication::translate("XyPlatform", "\345\220\221\345\267\246\347\247\273\345\212\250", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(statustip)
+        LeftButton_9->setStatusTip(QString());
+#endif // QT_CONFIG(statustip)
+        LeftButton_9->setText(QCoreApplication::translate("XyPlatform", "XY\350\275\264\345\271\263\345\217\260\345\233\2360", nullptr));
+#if QT_CONFIG(tooltip)
+        LeftButton_7->setToolTip(QCoreApplication::translate("XyPlatform", "\345\220\221\345\267\246\347\247\273\345\212\250", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(statustip)
+        LeftButton_7->setStatusTip(QString());
+#endif // QT_CONFIG(statustip)
+        LeftButton_7->setText(QCoreApplication::translate("XyPlatform", "\345\233\236\350\275\254\346\260\224\347\274\270\350\247\222\345\272\246\345\210\207\346\215\242\357\274\210\347\224\265\347\243\201\351\230\200\351\200\232\346\226\255\347\224\265\357\274\211", nullptr));
 #if QT_CONFIG(tooltip)
         LeftButton_6->setToolTip(QCoreApplication::translate("XyPlatform", "\345\220\221\345\267\246\347\247\273\345\212\250", nullptr));
 #endif // QT_CONFIG(tooltip)
